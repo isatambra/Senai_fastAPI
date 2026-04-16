@@ -29,3 +29,11 @@ jobs:
     - name: Executar o pytest no projeto
       run: |
         PYTHONPATH=. pytest tests/ -v --tb=short
+  Imagem:
+    name: Construindo imagem para o docker
+    runs-on: ubuntu-lasted
+    needs: build
+    steps:
+      - name: Configurar o Docker na VM
+        uses: docker/build-push-action@v7.1.0
+      
